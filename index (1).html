@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Husayn, Systems &amp; Automation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#14161c;
+    --bg-raised:#1b1e26;
+    --bg-raised-2:#20232c;
+    --text:#edeae2;
+    --text-dim:#8b8f9c;
+    --text-faint:#565b68;
+    --accent:#e8a33d;
+    --accent-2:#6fa8a6;
+    --border:#2a2e38;
+    --border-soft:#232630;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono',monospace;}
+  ::selection{background:var(--accent);color:#14161c;}
+
+  a{color:inherit;}
+
+  .wrap{max-width:980px;margin:0 auto;padding:0 28px;}
+
+  /* ticker */
+  .ticker{
+    border-bottom:1px solid var(--border-soft);
+    background:var(--bg-raised);
+    overflow:hidden;
+    white-space:nowrap;
+    padding:9px 0;
+  }
+  .ticker-track{
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    letter-spacing:0.06em;
+    color:var(--text-faint);
+    animation:scroll 34s linear infinite;
+  }
+  .ticker-track span{margin-right:36px;}
+  .ticker-track span b{color:var(--text-dim);font-weight:500;}
+  @keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .ticker-track{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* hero */
+  header.hero{
+    padding:88px 0 64px;
+    border-bottom:1px solid var(--border-soft);
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    color:var(--accent);
+    text-transform:uppercase;
+    margin-bottom:22px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:7px;height:7px;border-radius:50%;
+    background:var(--accent);
+    box-shadow:0 0 0 3px rgba(232,163,61,0.18);
+  }
+  h1{
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:clamp(34px,5.4vw,58px);
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    max-width:15ch;
+  }
+  h1 em{
+    font-style:normal;
+    color:var(--text-dim);
+  }
+  .hero p.sub{
+    margin-top:22px;
+    max-width:46ch;
+    color:var(--text-dim);
+    font-size:16.5px;
+  }
+  .hero-meta{
+    margin-top:38px;
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--text-faint);
+  }
+  .hero-meta div b{
+    display:block;
+    color:var(--text-dim);
+    font-size:13px;
+    margin-bottom:3px;
+  }
+
+  /* section headers */
+  .section{padding:64px 0;}
+  .section + .section{border-top:1px solid var(--border-soft);}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom:34px;
+    gap:20px;
+  }
+  .section-head h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:22px;
+    font-weight:600;
+  }
+  .section-head .tag{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11.5px;
+    color:var(--text-faint);
+    letter-spacing:0.05em;
+    white-space:nowrap;
+  }
+
+  /* case file cards */
+  .files{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+  }
+  @media (max-width:720px){
+    .files{grid-template-columns:1fr;}
+  }
+  .file{
+    background:var(--bg-raised);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:24px 24px 22px;
+    position:relative;
+    transition:border-color 0.2s ease, transform 0.2s ease;
+  }
+  .file:hover{
+    border-color:var(--border-soft);
+    transform:translateY(-2px);
+  }
+  .file-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--text-faint);
+    letter-spacing:0.05em;
+    margin-bottom:16px;
+  }
+  .status{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:3px 9px 3px 7px;
+    border-radius:20px;
+    border:1px solid var(--border);
+    font-size:10.5px;
+  }
+  .status.client{color:var(--accent-2);border-color:rgba(111,168,166,0.3);}
+  .status.personal{color:var(--accent);border-color:rgba(232,163,61,0.3);}
+  .status.private{color:var(--text-faint);}
+  .status i{width:5px;height:5px;border-radius:50%;background:currentColor;display:block;}
+
+  .file h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:20px;
+    font-weight:600;
+    margin-bottom:3px;
+  }
+  .file .cat{
+    color:var(--text-dim);
+    font-size:12.5px;
+    margin-bottom:14px;
+  }
+  .file p.desc{
+    color:var(--text-dim);
+    font-size:14px;
+    line-height:1.62;
+    margin-bottom:16px;
+  }
+  .redact{
+    background:var(--text-faint);
+    color:var(--text-faint);
+    border-radius:3px;
+    padding:0 2px;
+    user-select:none;
+  }
+  .stack{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+  }
+  .stack span{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10.5px;
+    color:var(--text-faint);
+    border:1px solid var(--border);
+    padding:3px 8px;
+    border-radius:5px;
+  }
+
+  footer{
+    padding:56px 0 72px;
+    border-top:1px solid var(--border-soft);
+  }
+  footer .row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:18px;
+  }
+  footer h2{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:24px;
+    font-weight:600;
+  }
+  footer a.contact{
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    color:var(--accent);
+    border:1px solid rgba(232,163,61,0.35);
+    padding:11px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    white-space:nowrap;
+  }
+  footer .fine{
+    margin-top:34px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;
+    color:var(--text-faint);
+  }
+
+  .reveal{opacity:0;transform:translateY(10px);transition:opacity 0.5s ease, transform 0.5s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="ticker">
+  <div class="ticker-track mono">
+    <span><b>NEXT.JS</b></span><span><b>NODE.JS</b></span><span><b>REACT</b></span><span><b>ELECTRON</b></span><span><b>SUPABASE</b></span><span><b>PHP</b></span><span><b>FFMPEG</b></span><span><b>OLLAMA</b></span><span><b>PYTHON</b></span><span><b>TYPESCRIPT</b></span><span><b>SQL</b></span><span><b>DOCKER</b></span>
+    <span><b>NEXT.JS</b></span><span><b>NODE.JS</b></span><span><b>REACT</b></span><span><b>ELECTRON</b></span><span><b>SUPABASE</b></span><span><b>PHP</b></span><span><b>FFMPEG</b></span><span><b>OLLAMA</b></span><span><b>PYTHON</b></span><span><b>TYPESCRIPT</b></span><span><b>SQL</b></span><span><b>DOCKER</b></span>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Systems &amp; automation, built solo</div>
+    <h1>Husayn builds the software that runs quietly <em>behind the scenes.</em></h1>
+    <p class="sub">Lead generation engines, internal business tools, and small AI powered apps, built end to end and shipped to real people using them every day.</p>
+    <div class="hero-meta">
+      <div><b>7</b>projects shipped</div>
+      <div><b>2</b>running on live client data</div>
+      <div><b>Solo</b>build, design, and deploy</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Client &amp; business tools</h2>
+      <span class="tag mono">FILE_01 &#8594; FILE_04</span>
+    </div>
+    <div class="files">
+
+      <div class="file reveal">
+        <div class="file-top"><span>FILE_01</span><span class="status client"><i></i>client build</span></div>
+        <h3>Phantom</h3>
+        <div class="cat">Lead generation engine</div>
+        <p class="desc">A prospecting tool built for a business process outsourcing agency. Scans LinkedIn, X, Threads, Indeed and Upwork for warm leads, then drafts outreach messages with AI, so the sales team opens their day with a ready pipeline instead of an empty search bar.</p>
+        <div class="stack"><span>Next.js</span><span>Node.js</span><span>OpenRouter API</span></div>
+      </div>
+
+      <div class="file reveal">
+        <div class="file-top"><span>FILE_02</span><span class="status client"><i></i>client build</span></div>
+        <h3>Warehouse &amp; Import System</h3>
+        <div class="cat">Business ERP, client name withheld</div>
+        <p class="desc">A full inventory and billing system for a real import and trading business. Tracks thousands of historical bills, hundreds of importers and clearing agents, plus supply in and out, billing, and reporting, all running on the client's actual operational data.</p>
+        <div class="stack"><span>React</span></div>
+      </div>
+
+      <div class="file reveal">
+        <div class="file-top"><span>FILE_03</span><span class="status personal"><i></i>active tool</span></div>
+        <h3>Wraith</h3>
+        <div class="cat">Creator outreach CRM</div>
+        <p class="desc">A desktop pipeline for managing creator partnerships from first contact through sample shipping to delivery. Pitch templates, follow up alerts, and CSV export, everything saved locally so nothing is lost on reinstall.</p>
+        <div class="stack"><span>Electron</span><span>React</span></div>
+      </div>
+
+      <div class="file reveal">
+        <div class="file-top"><span>FILE_04</span><span class="status personal"><i></i>active tool</span></div>
+        <h3>Specter</h3>
+        <div class="cat">AI chat workstation</div>
+        <p class="desc">A local first chat interface that talks to multiple AI models, including models running entirely on device through Ollama. Markdown and code rendering, session history saved to disk, and usage tracking built in.</p>
+        <div class="stack"><span>Next.js</span><span>Zustand</span><span>Ollama</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <h2>Personal projects</h2>
+      <span class="tag mono">FILE_05 &#8594; FILE_07 // some details kept private</span>
+    </div>
+    <div class="files">
+
+      <div class="file reveal">
+        <div class="file-top"><span>FILE_05</span><span class="status personal"><i></i>active tool</span></div>
+        <h3>Mimo</h3>
+        <div class="cat">Video automation studio</div>
+        <p class="desc">A local studio that turns a script into a finished short form video. Multi scene AI image generation, Ken Burns motion, caption burn in, and crossfade transitions, rendered straight to a finished MP4.</p>
+        <div class="stack"><span>Node.js</span><span>FFmpeg</span></div>
+      </div>
+
+      <div class="file reveal">
+        <div class="file-top"><span>FILE_06</span><span class="status private"><i></i>private</span></div>
+        <h3>Private build</h3>
+        <div class="cat">Personal, password protected</div>
+        <p class="desc">A small personal web app kept behind a password. <span class="redact">details withheld</span> by design, not everything needs a public writeup.</p>
+        <div class="stack"><span>PHP</span></div>
+      </div>
+
+      <div class="file reveal">
+        <div class="file-top"><span>FILE_07</span><span class="status private"><i></i>private</span></div>
+        <h3>Private build</h3>
+        <div class="cat">Personal, for a family member</div>
+        <p class="desc">An ad free reading app built for a family member's personal library. No public sign up, no ads, no algorithm. Installs like a native app and remembers her place in every book.</p>
+        <div class="stack"><span>Next.js</span><span>Supabase</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="row">
+      <h2>Have something that needs building.</h2>
+      <a class="contact" href="mailto:youremail@example.com">youremail@example.com</a>
+    </div>
+    <div class="fine mono">Edit the email above, plus add any socials or a resume link you want here.</div>
+  </footer>
+
+</div>
+
+<script>
+  var els = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12});
+  els.forEach(function(el){ io.observe(el); });
+</script>
+
+</body>
+</html>
