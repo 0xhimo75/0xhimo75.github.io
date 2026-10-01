@@ -284,7 +284,6 @@ h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2) 60%,var(
 
   <section class="contact" id="contact">
     <h2>Have something that needs building?</h2>
-    <p>I take on freelance projects and I am open to full time developer roles. Tell me what the software should quietly do for you.</p>
     <div class="links">
       <a class="btn p" href="mailto:hadiishhah@gmail.com">hadiishhah@gmail.com</a>
       <a class="btn" href="https://github.com/0xhimo75" target="_blank" rel="noopener">github.com/0xhimo75</a>
@@ -321,50 +320,51 @@ var SCR={
 
 /* ---------- project data ---------- */
 var P=[
- {id:'phantom',n:'Phantom',cat:'Lead generation engine',t:['client','biz','ai'],st:['client','client build'],c:'#6fd6d0',
-  d:'A prospecting tool for a business process outsourcing agency. It scans LinkedIn, X, Threads, Indeed and Upwork for warm leads, then drafts outreach with AI so the sales team starts the day with a ready pipeline.',
-  stack:['Next.js','Node.js','OpenRouter API'],
-  pts:['Multi platform scanning for buying signals','AI drafted, personalised outreach','Ready pipeline instead of an empty search bar']},
- {id:'warehouse',n:'Warehouse & Import System',cat:'Business ERP, client name withheld',t:['client','biz'],st:['client','client build'],c:'#e8a33d',
-  d:'A full inventory and billing system for a real tyre import and export business in Karachi. It replaced an old Windows program and keeps its rules, running on the client\'s actual operational data.',
-  stack:['React','Node.js','SQLite'],
-  pts:['Imports the legacy database and checks balances against it','NOC, Supply IN and OUT, billing and reports','Running balance per item and per NOC','Runs on a local office network']},
- {id:'sentinel',img:'assets/sentinel.jpg',imgs:['sentinel','sentinel-orders','sentinel-products','sentinel-ledger','sentinel-receivables','sentinel-hr','sentinel-journal','sentinel-reports'],n:'Sentinel ERP',cat:'Pharma ERP',t:['client','biz'],st:['client','client build'],c:'#9b8cff',
-  d:'An enterprise system built for a pharma business: inventory with batches and expiry, sales, purchasing, a live general ledger, HR and seven scoped roles.',
-  stack:['React','Node.js','Tailwind'],
-  pts:['Seven scoped roles, not just admin and employee','Batches, expiry dates and QC status','Quotations to orders to invoices, with payments','Trial balance, income statement and balance sheet computed live','Leave approvals, attendance and licence expiry tracking']},
- {id:'nova',n:'Nova CRM',cat:'Internal CRM and operations hub',t:['biz','ai'],st:['wip','in progress'],c:'#58d68d',
-  d:'An internal CRM for leads, pipeline, meetings with live transcripts, email sequences and tasks. A visible meeting bot joins calls and streams captions so a teammate can follow along.',
-  stack:['Next.js','Prisma','NextAuth','Resend'],
-  pts:['Two interchangeable meeting bot providers','Live transcript view inside each meeting','Email sequences and task management','Credential login with one account per teammate']},
- {id:'padel',n:'Padel Booking App',cat:'Mobile app, iOS and Android',t:['app'],st:['wip','in progress'],c:'#6fd6d0',
-  d:'A player facing mobile app for booking padel courts, with a glass interface in cyan and navy, coral for urgent moments, and violet marking a paid AI feature.',
-  stack:['Expo','React Native','TypeScript','Supabase'],
-  pts:['File based routing with Expo Router','Custom design system and tap glow interactions','Supabase backend with keys kept out of the repo','Real iOS builds from Windows through EAS']},
+ {id:'phantom',img:'assets/phantom-dashboard.jpg',imgs:['phantom-dashboard','phantom-prospects','phantom-scout','phantom-forge','phantom-pipeline'],n:'Phantom',cat:'Lead generation and outreach engine',t:['client','biz','ai'],st:['client','client build'],c:'#ff5a5a',
+  d:'A prospecting engine built for a business process outsourcing agency. It finds companies that are actively looking for outsourced support, organises them into a pipeline by service line, and drafts a personalised first message for each one, so the sales team starts every day with qualified targets and ready to send outreach.',
+  stack:['Next.js','Node.js','REST API routes','LLM APIs'],
+  pts:['Scans LinkedIn, X, Threads, Indeed, Upwork and direct company research for buying signals','Pipeline grouped by service line: support, virtual assistants, billing, IT, data entry, back office','Message Forge writes tailored outreach per prospect with one click copy','Live activity feed and stage tracking from new lead to closed won']},
+ {id:'warehouse',n:'Warehouse & Import System',cat:'Inventory and billing ERP, client name withheld',t:['client','biz'],st:['client','client build'],c:'#e8a33d',
+  d:'A complete warehouse, import and billing system for a real tyre trading business in Karachi. It replaced a legacy Windows program, migrated its entire history, and kept every business rule, so the team moved over without changing how they work.',
+  stack:['React','Node.js','SQLite','Data migration'],
+  pts:['Imported over a hundred thousand historical bills and verified balances against the old system','NOC records, Supply IN and OUT, billing, bills of entry and year end reports','Running balance per item and per NOC, exactly as the old program calculated it','Backup and restore, plus document scanning','Runs on a single office computer and serves the whole network'],
+  note:'Client data is confidential, so no screenshots are shown. A live walkthrough is available on request.'},
+ {id:'sentinel',img:'assets/sentinel.jpg',imgs:['sentinel','sentinel-orders','sentinel-products','sentinel-ledger','sentinel-receivables','sentinel-hr','sentinel-journal','sentinel-reports'],n:'Sentinel ERP',cat:'Pharma distribution ERP',t:['client','biz'],st:['client','client build'],c:'#9b8cff',
+  d:'An end to end enterprise system for a pharmaceutical distributor: sales, purchasing, inventory with batch and expiry control, a double entry general ledger, and HR with payroll. Built around real controls such as scoped roles, approvals and ledgers that cannot be edited, only reversed.',
+  stack:['React','Node.js','SQLite','Tailwind'],
+  pts:['Eight modules and over fifty live reports, with CSV export and print to PDF','Scoped roles for sales, warehouse, procurement, HR, accounts, branch manager and admin, so each person sees only what they need','Batches with expiry dates and QC status, and nothing sells from an unapproved batch','Quotation to order to invoice to payment, with aged receivables and payables','Trial balance, income statement and balance sheet computed live from journal entries','Payroll that posts a balanced, department split ledger entry; leave approvals and licence expiry tracking']},
  {id:'mimo',img:'assets/mimo.jpg',imgs:['mimo','mimo-pipeline','mimo-ideas','mimo-script'],n:'Mimo',cat:'Faceless video automation studio',t:['client','ai','tools'],st:['client','client build'],c:'#ff7a6b',
-  d:'A studio built for a client that turns a script into a finished short form video: multi scene AI images, Ken Burns motion, burned in captions and crossfades, rendered straight to MP4.',
-  stack:['Node.js','FFmpeg','AI image generation'],
-  pts:['Script to MP4 with no manual editing','Ken Burns motion and crossfade transitions','Caption burn in','One click launcher on Windows']},
+  d:'A studio that takes a content niche and produces a finished short form video: it generates viral ideas and scripts, builds scene images, adds voiceover and captions, and renders the final MP4.',
+  stack:['Node.js','FFmpeg','LLM APIs','Image generation','Voice synthesis'],
+  pts:['Five step pipeline from idea to script, images, voiceover and compiled video','Niche presets set style, tone and scene structure automatically','Ken Burns motion, crossfades and caption burn in handled by FFmpeg','Connects several AI services behind one simple interface']},
+ {id:'nova',img:'assets/nova-dashboard.jpg',imgs:['nova-dashboard','nova-leads','nova-pipeline','nova-meetings','nova-transcript','nova-sequences'],n:'Nova CRM',cat:'Internal CRM and operations hub',t:['biz','ai'],st:['wip','internal tool'],c:'#6f7bff',
+  d:'A CRM and operations hub for a small agency team: leads, a drag and drop pipeline, tasks, scheduled email sequences, and meetings with a live transcript. A visible notetaker bot joins calls so a teammate who is not there can follow along in real time.',
+  stack:['Next.js','TypeScript','Prisma','NextAuth','Tailwind'],
+  pts:['Pipeline with stalled deal alerts and automatic follow up dates','Email sequences with delays and placeholders, sent on a schedule','Live meeting transcripts through two interchangeable bot providers','Credential login, one account per teammate, owners and members']},
+ {id:'padel',img:'assets/padel-owner.jpg',imgs:['padel-owner','padel-player','padel-billing','padel-schedule','padel-scoring','padel-inventory','padel-reports','padel-coach','padel-matches','padel-ai'],n:'Padel Booking App',cat:'Mobile app for players and court owners',t:['app'],st:['wip','in progress'],c:'#4fb8d6',
+  d:'A two sided mobile app for a padel club. Players book courts, join coaching and track match results. Owners run the whole business from one place: bookings, billing, scheduling, scoring, inventory and reports, with an AI assistant that finds open courts and coaches.',
+  stack:['Expo','React Native','TypeScript','Supabase'],
+  pts:['Player side: live court grid, public and private booking, coaching, matches and an AI assistant','Owner side: tonight’s bookings, dead slot alerts, cash and online billing, no show tracking','Match scoring, point tables and Americano tournaments built in','Inventory with low stock warnings and revenue by source','Custom glass design system; runs on iOS, Android and web from one codebase']},
+ {id:'jericho',img:'assets/jericho.jpg',n:'Jericho',cat:'Personal desktop assistant',t:['ai','tools','app'],st:['personal','personal build'],c:'#3fb0ff',
+  d:'A personal, always on assistant for Windows. It watches memory and system health, runs security scans, tracks work alerts, opens applications and talks with me by voice using the wake word "Hey Jericho", with offline speech recognition so the wake word works without the internet.',
+  stack:['Electron','Node.js','Offline speech recognition','LLM APIs'],
+  pts:['Orb, widget and full screen command centre modes','Offline wake word and speech engine','Opens apps and answers by voice or text','Security hardened, with its own written threat notes']},
  {id:'specter',img:'assets/specter.jpg',n:'Specter',cat:'AI software builder',t:['ai','tools'],st:['live','active tool'],c:'#9b8cff',
-  d:'An AI software builder that turns a prompt into working code. Pick an engine, from best quality cloud models to fully offline local ones through Ollama, and watch the build stream live with files, history and usage tracking.',
-  stack:['Next.js','Zustand','Ollama'],
-  pts:['Five engines, including a free and fully offline local one','Live build output with downloadable files','Image and file input','History and usage tracking built in']},
- {id:'jericho',img:'assets/jericho.jpg',n:'Jericho',cat:'Personal desktop assistant',t:['ai','tools','app'],st:['personal','personal build'],c:'#6fd6d0',
-  d:'An always on assistant for Windows. It watches memory and health, scans for threats, tracks work alerts, opens apps and talks by voice with the wake word "Hey Jericho".',
-  stack:['Electron','Node.js','Offline speech','HTML'],
-  pts:['Orb, widget and full command centre modes','Offline wake word and speech recognition','Opens apps by voice or text','Security hardened with its own SECURITY notes']},
+  d:'An AI software builder that turns a plain request into working code. Choose an engine, from the best cloud models to a fully offline local model through Ollama, and watch the build stream live with downloadable files, history and usage tracking.',
+  stack:['Next.js','Zustand','Ollama','LLM APIs'],
+  pts:['Five engines, including a free offline one','Live build output with downloadable files','Image and file input','History and usage tracking built in']},
  {id:'gods',img:'assets/gods.jpg',imgs:['gods','gods-karachi'],n:"Pakistan God's Eye",cat:'Live 3D intelligence globe',t:['ai','app'],st:['wip','in progress'],c:'#ff7a6b',
-  d:'A full screen 3D globe of Pakistan with stacked live data layers and an AI agent that reads the current view and answers in plain language.',
-  stack:['TypeScript','Vite','3D globe','Agent'],
-  pts:['Region is config, so it can go global later','One module per live layer with source and age shown','Keys stay on the server','Visual modes such as night vision and thermal']},
+  d:'A full screen 3D globe of Pakistan with live data layers stacked on one map: earthquakes, satellites and weather, with aircraft available as a layer. It zooms from the whole country down to street level, and an AI agent that answers questions about the current view is next on the build plan.',
+  stack:['TypeScript','Vite','CesiumJS','Live public data APIs'],
+  pts:['Live earthquake, satellite and weather layers, each showing its source and age','Nearest to you panel that updates as the camera moves','Region is configuration, so the same code can go global','Keys stay on the server, and the app works with no keys at all']},
  {id:'trading',n:'Trading Bot',cat:'Backtest first crypto bot',t:['tools'],st:['wip','stage 1'],c:'#58d68d',
-  d:'A spot BTC and ETH bot built in careful stages: honest backtesting with fees, slippage and walk forward validation first, paper trading second, and nothing live until it earns it.',
+  d:'A spot BTC and ETH bot built in disciplined stages. Honest backtesting comes first, with fees, slippage and walk forward validation, then paper trading, and nothing runs live until it has earned it.',
   stack:['Python','ccxt','pytest'],
-  pts:['Signals act on the next bar, never the one that made them','Every fill pays fees and slippage','Judged only on out of sample windows','Paper mode by default, no leverage, no shorting']},
- {id:'vault',n:'Doc Vault',cat:'Private installable PWA',t:['app','tools'],st:['live','live and public'],c:'#e8a33d',
-  d:'A private, installable document tracker. Photos, notes and reference numbers grouped by party, with search, a PIN lock and JSON backup. All data stays on the device.',
+  pts:['Signals act on the next bar, never the one that produced them','Every simulated fill pays fees and slippage','Results judged only on out of sample windows','Paper mode by default, no leverage and no shorting']},
+ {id:'vault',n:'Doc Vault',cat:'Private installable web app',t:['app','tools'],st:['live','live and public'],c:'#e8a33d',
+  d:'A private document tracker that installs to a phone home screen like a native app. It stores photos, notes and reference numbers grouped by party, with search, a PIN lock and backup, and keeps everything on the device.',
   stack:['PWA','Service worker','JavaScript'],
-  pts:['Installs to the home screen like a native app','Works offline, nothing stored on a server','PIN lock and JSON backup and restore'],
+  pts:['Works offline, nothing is stored on a server','PIN lock, search, and JSON backup and restore','Installs from the browser on Android and iPhone'],
   link:'https://github.com/0xhimo75/keepnote-d82d36'}
 ];
 var NOTE_PRIV='Source code is private. Walkthrough or live demo on request.';
@@ -399,7 +399,7 @@ var modal=document.getElementById('modal'),mbox=document.getElementById('mbox');
 function openM(i){
   var p=P[i];
   mbox.style.setProperty('--c',p.c);
-  mbox.innerHTML='<div class="shot" style="--c:'+p.c+'">'+shotHTML(p,1)+'</div><div class="info"><button class="close" onclick="closeM()">close esc</button><span class="badge '+p.st[0]+'" style="align-self:flex-start"><i></i>'+p.st[1]+'</span><h3>'+p.n.replace('&','&amp;')+'</h3><div class="cat" style="color:'+p.c+';font-size:13px">'+p.cat+'</div><p style="color:var(--dim);font-size:14px">'+p.d+'</p><ul>'+p.pts.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><div class="stack">'+p.stack.map(function(s){return '<span>'+s+'</span>'}).join('')+'</div>'+(p.link?'<a class="btn p" style="text-align:center" target="_blank" rel="noopener" href="'+p.link+'">View on GitHub</a>':'<div class="note">'+NOTE_PRIV+'</div>')+'</div>';
+  mbox.innerHTML='<div class="shot" style="--c:'+p.c+'">'+shotHTML(p,1)+'</div><div class="info"><button class="close" onclick="closeM()">close esc</button><span class="badge '+p.st[0]+'" style="align-self:flex-start"><i></i>'+p.st[1]+'</span><h3>'+p.n.replace('&','&amp;')+'</h3><div class="cat" style="color:'+p.c+';font-size:13px">'+p.cat+'</div><p style="color:var(--dim);font-size:14px">'+p.d+'</p><ul>'+p.pts.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><div class="stack">'+p.stack.map(function(s){return '<span>'+s+'</span>'}).join('')+'</div>'+(p.link?'<a class="btn p" style="text-align:center" target="_blank" rel="noopener" href="'+p.link+'">View on GitHub</a>':'<div class="note">'+(p.note||NOTE_PRIV)+'</div>')+'</div>';
   modal.classList.add('open');document.body.style.overflow='hidden';
 }
 function closeM(){modal.classList.remove('open');document.body.style.overflow=''}
