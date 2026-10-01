@@ -152,6 +152,18 @@ h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2) 60%,var(
 .cap{position:absolute;bottom:10px;left:6px;right:6px;z-index:2;font:700 9px 'Space Grotesk';text-align:center;background:#000a;padding:3px;border-radius:4px}
 .tl{display:flex;gap:3px;height:16px}.tl i{flex:1;border-radius:3px;background:var(--c);opacity:.55}.tl i:nth-child(2n){opacity:.9}
 
+/* real screenshots */
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform .6s ease}
+.card:hover .shot img{transform:scale(1.05)}
+.tag-real{position:absolute;left:10px;bottom:10px;z-index:3;font:600 10px 'JetBrains Mono';background:rgba(13,15,20,.82);color:var(--green);border:1px solid rgba(88,214,141,.4);padding:3px 8px;border-radius:20px;backdrop-filter:blur(6px)}
+.tag-mock{color:var(--faint);border-color:var(--border)}
+.bring{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:16px}
+.b{background:linear-gradient(180deg,var(--bg2),transparent);border:1px solid var(--border);border-radius:14px;padding:24px;transition:.25s}
+.b:hover{border-color:var(--accent);transform:translateY(-4px)}
+.b .n{font:600 11px 'JetBrains Mono';color:var(--accent);letter-spacing:.12em}
+.b h3{font-family:'Space Grotesk';font-size:20px;margin:8px 0 8px}
+.b p{color:var(--dim);font-size:14px;line-height:1.6}
+.b .proof{margin-top:14px;font:11.5px 'JetBrains Mono';color:var(--accent2)}
 /* modal */
 .modal{position:fixed;inset:0;z-index:50;background:rgba(5,6,9,.78);backdrop-filter:blur(8px);display:none;align-items:center;justify-content:center;padding:20px}
 .modal.open{display:flex}
@@ -200,7 +212,7 @@ h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2) 60%,var(
   <div class="wrap">
     <div class="logo">husayn<b>.</b>dev</div>
     <ul>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#bring">Skills</a></li><li><a href="#work">Proof</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#stack">Stack</a></li>
       <li><a class="cta" href="#contact">Hire me</a></li>
@@ -215,12 +227,12 @@ h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2) 60%,var(
     <div class="type mono" id="type"></div>
     <p class="sub">Self taught full stack developer. Learned through Harvard's CS50, now shipping lead engines, ERPs, AI tools, mobile apps and automation, solo, end to end.</p>
     <div class="btns">
-      <a class="btn p" href="#work">See the projects</a>
+      <a class="btn p" href="#bring">What I bring</a><a class="btn" href="#work">See it working</a>
       <a class="btn" href="https://github.com/0xhimo75" target="_blank" rel="noopener">GitHub</a>
       <a class="btn" href="#contact">Get in touch</a>
     </div>
     <div class="stats">
-      <div class="stat"><b data-n="11">0</b><span>PROJECTS BUILT</span></div>
+      <div class="stat"><b data-n="11">0</b><span>SYSTEMS SHIPPED</span></div>
       <div class="stat"><b data-n="2">0</b><span>CLIENT BUILDS</span></div>
       <div class="stat"><b data-n="12">0</b><span>TECHNOLOGIES</span></div>
       <div class="stat"><b>Solo</b><span>DESIGN TO DEPLOY</span></div>
@@ -231,11 +243,23 @@ h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2) 60%,var(
 <div class="ticker"><div class="tt mono" id="tt"></div></div>
 
 <div class="wrap">
+  <section class="section" id="bring">
+    <div class="sh"><div><h2>What I bring to the table</h2><p>Six things I do well, each one backed by software I built and run.</p></div></div>
+    <div class="bring">
+      <div class="b reveal"><div class="n">01</div><h3>Full stack delivery, alone</h3><p>I take a business problem to a working product: database, API, interface and deployment. No hand holding, no waiting on a team.</p><div class="proof">Proof: Sentinel ERP, Warehouse System</div></div>
+      <div class="b reveal"><div class="n">02</div><h3>AI that does real work</h3><p>Not chat demos. Agents that read context, draft outreach, run on local models and stay useful when the internet is down.</p><div class="proof">Proof: Specter, Phantom, Jericho</div></div>
+      <div class="b reveal"><div class="n">03</div><h3>Automation that saves hours</h3><p>Script to finished video, prospect to ready pipeline, legacy database to clean system. I remove the manual steps.</p><div class="proof">Proof: Mimo, Phantom, Nova</div></div>
+      <div class="b reveal"><div class="n">04</div><h3>Business systems that balance</h3><p>Inventory with batches and expiry, ledgers that always balance, role based access, approvals and audit trails.</p><div class="proof">Proof: Sentinel ERP, Warehouse System</div></div>
+      <div class="b reveal"><div class="n">05</div><h3>Interfaces people enjoy</h3><p>Dashboards, mobile apps, installable PWAs and 3D data views. I care how it feels, not just that it works.</p><div class="proof">Proof: God's Eye, Padel App, Doc Vault</div></div>
+      <div class="b reveal"><div class="n">06</div><h3>Security from day one</h3><p>Server side keys, scoped roles, no real data in repos, honest backtests, visible bots instead of hidden ones.</p><div class="proof">Proof: Nova, Trading Bot, Jericho</div></div>
+    </div>
+  </section>
+
   <section class="section" id="work">
     <div class="sh">
       <div>
-        <h2>All projects</h2>
-        <p>Click any card for a closer look. The screens are animated previews of each product. Most code is private, so real demos are on request.</p>
+        <h2>See it working</h2>
+        <p>Real screenshots where I could capture them, animated previews for the rest. Click any card for details. Source is private, so a live walkthrough is available on request.</p>
       </div>
       <div class="chips" id="chips"></div>
     </div>
@@ -307,7 +331,7 @@ var P=[
   d:'A full inventory and billing system for a real tyre import and export business in Karachi. It replaced an old Windows program and keeps its rules, running on the client\'s actual operational data.',
   stack:['React','Node.js','SQLite'],
   pts:['Imports the legacy database and checks balances against it','NOC, Supply IN and OUT, billing and reports','Running balance per item and per NOC','Runs on a local office network']},
- {id:'sentinel',n:'Sentinel ERP',cat:'Pharma ERP demonstration',t:['biz'],st:['wip','demo build'],c:'#9b8cff',
+ {id:'sentinel',img:'assets/sentinel.jpg',n:'Sentinel ERP',cat:'Pharma ERP demonstration',t:['biz'],st:['wip','demo build'],c:'#9b8cff',
   d:'A demonstration enterprise system for a pharma business: inventory with batches and expiry, sales, purchasing, a live general ledger, HR and seven scoped roles.',
   stack:['React','Node.js','Tailwind'],
   pts:['Seven scoped roles, not just admin and employee','Batches, expiry dates and QC status','Quotations to orders to invoices, with payments','Trial balance, income statement and balance sheet computed live','Leave approvals, attendance and licence expiry tracking']},
@@ -319,19 +343,19 @@ var P=[
   d:'A player facing mobile app for booking padel courts, with a glass interface in cyan and navy, coral for urgent moments, and violet marking a paid AI feature.',
   stack:['Expo','React Native','TypeScript','Supabase'],
   pts:['File based routing with Expo Router','Custom design system and tap glow interactions','Supabase backend with keys kept out of the repo','Real iOS builds from Windows through EAS']},
- {id:'mimo',n:'Mimo',cat:'Faceless video automation studio',t:['ai','tools'],st:['live','active tool'],c:'#ff7a6b',
+ {id:'mimo',img:'assets/mimo.jpg',n:'Mimo',cat:'Faceless video automation studio',t:['ai','tools'],st:['live','active tool'],c:'#ff7a6b',
   d:'A local studio that turns a script into a finished short form video: multi scene AI images, Ken Burns motion, burned in captions and crossfades, rendered straight to MP4.',
   stack:['Node.js','FFmpeg','AI image generation'],
   pts:['Script to MP4 with no manual editing','Ken Burns motion and crossfade transitions','Caption burn in','One click launcher on Windows']},
- {id:'specter',n:'Specter',cat:'AI chat workstation',t:['ai','tools'],st:['live','active tool'],c:'#9b8cff',
-  d:'A local first chat interface for many AI models, including models running fully on device through Ollama, with markdown and code rendering and session history saved to disk.',
+ {id:'specter',img:'assets/specter.jpg',n:'Specter',cat:'AI software builder',t:['ai','tools'],st:['live','active tool'],c:'#9b8cff',
+  d:'An AI software builder that turns a prompt into working code. Pick an engine, from best quality cloud models to fully offline local ones through Ollama, and watch the build stream live with files, history and usage tracking.',
   stack:['Next.js','Zustand','Ollama'],
-  pts:['Cloud and on device models in one place','Markdown and code rendering','History saved to disk','Usage tracking built in']},
- {id:'jericho',n:'Jericho',cat:'Personal desktop assistant',t:['ai','tools','app'],st:['live','active tool'],c:'#6fd6d0',
+  pts:['Five engines, including a free and fully offline local one','Live build output with downloadable files','Image and file input','History and usage tracking built in']},
+ {id:'jericho',img:'assets/jericho.jpg',n:'Jericho',cat:'Personal desktop assistant',t:['ai','tools','app'],st:['live','active tool'],c:'#6fd6d0',
   d:'An always on assistant for Windows. It watches memory and health, scans for threats, tracks work alerts, opens apps and talks by voice with the wake word "Hey Jericho".',
   stack:['Electron','Node.js','Offline speech','HTML'],
   pts:['Orb, widget and full command centre modes','Offline wake word and speech recognition','Opens apps by voice or text','Security hardened with its own SECURITY notes']},
- {id:'gods',n:"Pakistan God's Eye",cat:'Live 3D intelligence globe',t:['ai','app'],st:['wip','in progress'],c:'#ff7a6b',
+ {id:'gods',img:'assets/gods.jpg',n:"Pakistan God's Eye",cat:'Live 3D intelligence globe',t:['ai','app'],st:['wip','in progress'],c:'#ff7a6b',
   d:'A full screen 3D globe of Pakistan with stacked live data layers and an AI agent that reads the current view and answers in plain language.',
   stack:['TypeScript','Vite','3D globe','Agent'],
   pts:['Region is config, so it can go global later','One module per live layer with source and age shown','Keys stay on the server','Visual modes such as night vision and thermal']},
@@ -348,11 +372,12 @@ var P=[
 var NOTE_PRIV='Source code is private. Walkthrough or live demo on request.';
 
 /* ---------- render ---------- */
+function shotHTML(p){return p.img?'<img src="'+p.img+'" alt="'+p.n+' screenshot" loading="lazy"><span class="tag-real">real screenshot</span>':SCR[p.id]()+'<span class="tag-real tag-mock">preview</span>'}
 var grid=document.getElementById('grid');
 P.forEach(function(p,i){
   var a=document.createElement('article');
   a.className='card reveal';a.style.setProperty('--c',p.c);a.dataset.tags=p.t.join(' ');
-  a.innerHTML='<div class="shot" style="--c:'+p.c+'">'+SCR[p.id]()+'</div><div class="body"><div class="row"><span class="badge '+p.st[0]+'"><i></i>'+p.st[1]+'</span><span class="more">view &#8594;</span></div><h3>'+p.n.replace('&','&amp;')+'</h3><div class="cat">'+p.cat+'</div><p>'+p.d+'</p><div class="stack">'+p.stack.map(function(s){return '<span>'+s+'</span>'}).join('')+'</div></div>';
+  a.innerHTML='<div class="shot" style="--c:'+p.c+'">'+shotHTML(p)+'</div><div class="body"><div class="row"><span class="badge '+p.st[0]+'"><i></i>'+p.st[1]+'</span><span class="more">view &#8594;</span></div><h3>'+p.n.replace('&','&amp;')+'</h3><div class="cat">'+p.cat+'</div><p>'+p.d+'</p><div class="stack">'+p.stack.map(function(s){return '<span>'+s+'</span>'}).join('')+'</div></div>';
   a.onclick=function(){openM(i)};
   a.style.transitionDelay=(i%3)*70+'ms';
   grid.appendChild(a);
@@ -374,7 +399,7 @@ var modal=document.getElementById('modal'),mbox=document.getElementById('mbox');
 function openM(i){
   var p=P[i];
   mbox.style.setProperty('--c',p.c);
-  mbox.innerHTML='<div class="shot" style="--c:'+p.c+'">'+SCR[p.id]()+'</div><div class="info"><button class="close" onclick="closeM()">close esc</button><span class="badge '+p.st[0]+'" style="align-self:flex-start"><i></i>'+p.st[1]+'</span><h3>'+p.n.replace('&','&amp;')+'</h3><div class="cat" style="color:'+p.c+';font-size:13px">'+p.cat+'</div><p style="color:var(--dim);font-size:14px">'+p.d+'</p><ul>'+p.pts.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><div class="stack">'+p.stack.map(function(s){return '<span>'+s+'</span>'}).join('')+'</div>'+(p.link?'<a class="btn p" style="text-align:center" target="_blank" rel="noopener" href="'+p.link+'">View on GitHub</a>':'<div class="note">'+NOTE_PRIV+'</div>')+'</div>';
+  mbox.innerHTML='<div class="shot" style="--c:'+p.c+'">'+shotHTML(p)+'</div><div class="info"><button class="close" onclick="closeM()">close esc</button><span class="badge '+p.st[0]+'" style="align-self:flex-start"><i></i>'+p.st[1]+'</span><h3>'+p.n.replace('&','&amp;')+'</h3><div class="cat" style="color:'+p.c+';font-size:13px">'+p.cat+'</div><p style="color:var(--dim);font-size:14px">'+p.d+'</p><ul>'+p.pts.map(function(x){return '<li>'+x+'</li>'}).join('')+'</ul><div class="stack">'+p.stack.map(function(s){return '<span>'+s+'</span>'}).join('')+'</div>'+(p.link?'<a class="btn p" style="text-align:center" target="_blank" rel="noopener" href="'+p.link+'">View on GitHub</a>':'<div class="note">'+NOTE_PRIV+'</div>')+'</div>';
   modal.classList.add('open');document.body.style.overflow='hidden';
 }
 function closeM(){modal.classList.remove('open');document.body.style.overflow=''}
